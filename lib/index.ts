@@ -375,6 +375,7 @@ export class RedisAdapter extends Adapter {
           response.sockets.forEach((s) => request.sockets.add(s));
         } else {
           response.sockets.forEach((s) => request.sockets.push(s));
+          console.log('msgCount', request.msgCount, 'numSub', request.numSub);
         }
 
         if (request.msgCount === request.numSub) {
