@@ -17,7 +17,7 @@
     "format:check": "prettier --parser typescript --check 'lib/**/*.ts' 'test/**/*.ts'",
     "format:fix": "prettier --parser typescript --write 'lib/**/*.ts' 'test/**/*.ts'",
     "prepack": "tsc",
-    "postinstall": "tsc --outDir ./dist"
+    "postinstall": "npm run prepack"
   },
   "dependencies": {
     "debug": "~4.3.1",
