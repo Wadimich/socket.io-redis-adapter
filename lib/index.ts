@@ -375,7 +375,6 @@ export class RedisAdapter extends Adapter {
           response.sockets.forEach((s) => request.sockets.add(s));
         } else {
           response.sockets.forEach((s) => request.sockets.push(s));
-          console.log('msgCount', request.msgCount, 'numSub', request.numSub);
         }
 
         if (request.msgCount === request.numSub) {
@@ -712,6 +711,8 @@ export class RedisAdapter extends Adapter {
     return new Promise((resolve, reject) => {
       const timeout = setTimeout(() => {
         if (this.requests.has(requestId)) {
+          const req = this.requests.get(requestId);
+          console.log(req.msgCount, numSub);
           reject(
             new Error("timeout reached while waiting for fetchSockets response")
           );
